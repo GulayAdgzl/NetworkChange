@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:usecase/intControl/no_network_widget.dart';
 
+import 'intControl/core/init/main_build.dart';
 import 'intControl/view/network_change_view.dart';
 
 void main() {
@@ -14,13 +16,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      builder: (context, child) {
+      builder: MainBuild.build,
+      /*(context, child) {
         //Btün widgetler,n ilk çizildiği noktada araya girebiliyoruz.Ekranın önüne bi şeyler yapabiliyoruz
-        return child ?? SizedBox();
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+        return Column(
+          children: [
+            Expanded(child: child ?? SizedBox()),
+            const NoNetworkWidget(),
+          ],
+        );*/
+    
+      
+      
       home: NetworkChangeView(),
     );
   }
